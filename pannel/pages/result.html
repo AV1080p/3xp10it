@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block extrastyle %}
+{% endblock %}
+{% block extrajs %}
+
+
+<script type="text/javascript">
+function initShowResult()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+/*document.getElementById("myinput").style.display="none"*/
+/*document.getElementById("button1").style.display="none"*/
+/*document.getElementById("myoutput").style.display="block"*/
+/*document.getElementById("myoutput").innerHTML="processing...wait a moment:D..."*/
+
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    /*document.getElementById("myoutput").innerHTML=xmlhttp.responseText;*/
+		var responseString=xmlhttp.responseText
+		if (responseString=="0")
+		{}
+		if (responseString!="0")
+		{
+				var firstTargetsHttpDomain=new Array();
+				firstTargetsHttpDomain=responseString.split(";")[0].split(",");
+				for (i=1;i<firstTargetsHttpDomain.length;i++)
+				{
+						var newDiv=document.createElement('button');
+						newDiv.innerHTML=firstTargetsHttpDomain[i];
+						newDiv.id=firstTargetsHttpDomain[i]
+						newDiv.style.marginTop=(200+i*20).toString()+"px";
+						newDiv.style.width="100px";
+						newDiv.style.margin="0 auto"
+						newDiv.style.display="block"
+						newDiv.style.color="white"
+						newDiv.style.background="#333"
+						newDiv.style.border="none"
+						newDiv.style.width="400px"
+						newDiv.style.height="45px"
+						newDiv.style.marginTop="20px"
+						newDiv.onclick=result
+						document.getElementById("firstTargets").appendChild(newDiv);
+				}
+				var targetsHttpDomain=new Array();
+				targetsHttpDomain=responseString.split(";")[1].split(",");
+				for (i=1;i<targetsHttpDomain.length;i++)
+				{
+						var newDiv=document.createElement('button');
+						newDiv.innerHTML=targetsHttpDomain[i];
+						newDiv.id=targetsHttpDomain[i]
+						newDiv.style.marginTop=(200+i*20).toString()+"px";
+						newDiv.style.width="100px";
+						newDiv.style.margin="0 auto"
+						newDiv.style.display="block"
+						newDiv.style.color="white"
+						newDiv.style.background="#333"
+						newDiv.style.border="none"
+						newDiv.style.width="400px"
+						newDiv.style.height="45px"
+						newDiv.style.marginTop="20px"
+						/*下面的result是下面定义的一个函数*/
+						newDiv.onclick=result
+						document.getElementById("targets").appendChild(newDiv);
+
+				}
+
+		}
+
+    }
+  }
+
+xmlhttp.open("GET","/result/?action=result&targetValue=initShowResult",true);
+xmlhttp.send();
+
+}
+
+
+/*用window.onload调用initShowResult()*/
+window.onload=initShowResult;//不要括号
+
+
+
+
+function result(){
+http_domain=this.id
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+document.getElementById("firstTargets").style.display="none"
+document.getElementById("targets").style.display="none"
+document.getElementById("myoutput").style.display="block"
+
+document.getElementById("myoutput").innerHTML="processing...wait a moment:D..."
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myoutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","/result/?action=result&targetValue="+http_domain,true);
+xmlhttp.send();
+
+}
+
+
+</script>
+
+{% endblock %}
+{% block content %}
+
+
+
+<div id=firstTargets style="margin:0
+		auto;display:block;color:white;background:black;border:none;width:900px;height:auto;margin-top:5%
+">
+优先目标
+</div>
+<div id=targets style="margin:0
+		auto;display:block;color:white;background:black;border:none;width:900px;height:auto;margin-top:2%
+">正常目标</div>
+
+
+{% endblock %}

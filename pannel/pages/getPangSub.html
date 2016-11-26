@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block extrastyle %}
+{% endblock %}
+{% block extrajs %}
+<script type="text/javascript">
+function getPang(){
+
+var getPangTarget=document.getElementById("INPUT_2")
+var getPangTargetValue=getPangTarget.value
+if(getPangTargetValue.length==0){
+alert("单击xPang按钮时目标不能为空!")
+getPangTarget.focus();
+return false;
+}
+
+if(getPangTargetValue.substring(0,4)!="http" || getPangTargetValue.length<5){
+alert("格式为http://www.baidu.com");
+getPangTarget.focus();
+return false;
+}
+
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+document.getElementById("myinput").style.display="none"
+document.getElementById("button1").style.display="none"
+document.getElementById("button2").style.display="none"
+document.getElementById("myoutput").style.display="block"
+document.getElementById("myoutput").innerHTML="processing...wait a moment:D..."
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myoutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","/getPangSub/?action=getPang&targetValue="+getPangTargetValue,true);
+xmlhttp.send();
+
+}
+
+
+function getSub(){
+var getSubTarget=document.getElementById("INPUT_2")
+var getSubTargetValue=getSubTarget.value
+if(getSubTargetValue.length==0){
+alert("单击getSub按钮时目标不能为空!")
+getSubTarget.focus();
+return false;
+}
+
+if(getSubTargetValue.substring(0,4)!="http" || getSubTargetValue.length<5){
+alert("格式为http://www.baidu.com");
+getSubTarget.focus();
+return false;
+}
+
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+document.getElementById("myinput").style.display="none"
+document.getElementById("button1").style.display="none"
+document.getElementById("button2").style.display="none"
+document.getElementById("myoutput").style.display="block"
+document.getElementById("myoutput").innerHTML="processing...wait a moment:D..."
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myoutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","/getPangSub/?action=getSub&targetValue="+getSubTargetValue,true);
+xmlhttp.send();
+
+}
+</script>
+
+{% endblock %}
+{% block content %}
+
+<div class="mid" id="myinput">
+	<input type="text" id="INPUT_2" placeholder="get Pang|Sub domains of target..." name="targetValue"/>
+</div>
+
+<button id=button1 style="margin:0
+		auto;display:block;color:white;background:black;border:none;width:90px;height:45px;margin-top:40px"
+		onclick="getPang()">xPang</button>
+<button id=button2 style="margin:0
+		auto;display:block;color:white;background:black;border:none;width:90px;height:45px;margin-top:40px"
+		onclick="getSub()">xSub</button>
+
+{% endblock %}

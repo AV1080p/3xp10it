@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block extrastyle %}
+{% endblock %}
+{% block extrajs %}
+<script type="text/javascript">
+function xwebshell(){
+
+var xwebshellTarget=document.getElementById("INPUT_2")
+var xwebshellTargetValue=xwebshellTarget.value
+if(xwebshellTargetValue.length==0){
+alert("单击xwebshell按钮时目标不能为空!")
+xwebshellTarget.focus();
+return false;
+}
+
+if(xwebshellTargetValue.substring(0,4)!="http" || xwebshellTargetValue.length<5){
+alert("格式为http://www.baidu.com/1.php");
+xwebshellTarget.focus();
+return false;
+}
+
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+document.getElementById("myinput").style.display="none"
+document.getElementById("button1").style.display="none"
+document.getElementById("myoutput").style.display="block"
+document.getElementById("myoutput").innerHTML="processing...wait a moment:D..."
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myoutput").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+xmlhttp.open("GET","/xwebshell/?action=xwebshell&targetValue="+xwebshellTargetValue,true);
+xmlhttp.send();
+
+}
+
+
+</script>
+
+{% endblock %}
+{% block content %}
+
+<div class="mid" id="myinput">
+	<input type="text" id="INPUT_2" placeholder="Webshell crack..." name="targetValue"/>
+</div>
+
+<button id=button1 style="margin:0
+		auto;display:block;color:white;background:black;border:none;width:90px;height:45px;margin-top:40px"
+		onclick="xwebshell()">xwebshell</button>
+
+{% endblock %}
