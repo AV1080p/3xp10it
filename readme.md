@@ -99,6 +99,7 @@ e)web后台说明
 <img src="https://raw.githubusercontent.com/3xp10it/pic/master/web.png">
 
 - web后台相当于3xp10it的部分界面+分割的模块化工具+exp10it中没有的功能的附加工具的集合
+- web后台由Django==1.10.3开发
 - web后台中支持工具列表
 	- targets:查看扫描目标,新增/删除扫描目标 
 	- 获取旁|子站:获取旁站或子站模块
