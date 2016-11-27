@@ -1,7 +1,7 @@
 ### Disclaimer
 
 ```
-[!] legal disclaimer: Usage of xdump.py for attacking targets without prior mutual consent is illegal.
+[!] legal disclaimer: Usage of 3xp10it.py and web.py for attacking targets without prior mutual consent is illegal.
 It is the end user's responsibility to obey all applicable local, state and federal laws. 
 Developers assume no liability and are not responsible for any misuse or damage caused by this program
 ```
@@ -17,6 +17,7 @@ python3 3xp10it.py
 ### About
 
 a)3xp10it是一个自动化渗透测试框架,目前没有做到完全自动化[自动上传漏洞利用框架和自动fuzz框架暂时没有加入]
+
 b)支持功能列表
 
 - 高危漏洞扫描模块
@@ -60,7 +61,8 @@ d)特点
 e)web后台说明
 
 - web后台如下图,需要管理员身份登录才可进后台
-	https://raw.githubusercontent.com/3xp10it/pic/master/web.png
+<img src="https://raw.githubusercontent.com/3xp10it/pic/master/web.png">
+
 - web后台相当于3xp10it的部分界面+分割的模块化工具+exp10it中没有的功能的附加工具的集合
 - web后台中支持工具列表
 	- targets:查看扫描目标,新增/删除扫描目标 
