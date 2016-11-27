@@ -9,6 +9,7 @@ os.chdir("pannel")
 if re.search(r"finish_web_setting", content):
     pass
 else:
+    os.system("pip3 install Django==1.10.3")
     os.system("python3 manage.py migrate")
     os.system("python3 manage.py createsuperuser")
     update_config_file_key_value(configIniPath, 'default', 'finish_web_setting', 1)
