@@ -1,9 +1,9 @@
 ### Disclaimer
 
 ```
-[!] legal disclaimer: Usage of 3xp10it.py and web.py for attacking targets without prior mutual consent is illegal.
-It is the end user's responsibility to obey all applicable local, state and federal laws. 
-Developers assume no liability and are not responsible for any misuse or damage caused by this program
+[!] legal disclaimer: Usage of 3xp10it.py and web.py for attacking targets without prior mutual consent is 
+illegal.It is the end user's responsibility to obey all applicable local, state and federal laws.Developers
+assume no liability and are not responsible for any misuse or damage caused by this program.
 ```
 
 ### Usage
@@ -42,7 +42,9 @@ c)可选工作模式
 模式四:只扫描目标  
 
 ```
-默认使用模式一扫描[在运行3xp10it后可自选],上面四种模式中的[扫描目标]里的目标支持批量导入多个目标和手工录入多个目标.四种工作模式中与旁站和子站相关的由程序自动完成[eg.选择模式三工作时,将自动获取导入的目标的所有旁站和所有子站,并对这些旁站和子站依次遍历上面的各个扫描模块]
+默认使用模式一扫描[在运行3xp10it后可自选],上面四种模式中的[扫描目标]里的目标支持批量导入多个目标和手工录入多个
+目标.四种工作模式中与旁站和子站相关的由程序自动完成[eg.选择模式三工作时,将自动获取导入的目标的所有旁站和所有子
+站,并对这些旁站和子站依次遍历上面的各个扫描模块]
 ```
 
 d)特点
