@@ -16,16 +16,16 @@ git clone https://github.com/3xp10it/3xp10it.git
 
 ```
 python3 3xp10it.py
-[python3 web.py],可选
+[python3 web.py],可选,如果运行则要新开一个终端运行以便于查看相关输出信息
 ```
 
 ### Requirement
 
 ```
-works on linux(test on ubuntu and kali2.0,others not test)
 need python3
 need pip3
 mysql
+works on linux(test on ubuntu and kali2.0,others not test)
 
 python3安装可参考如下步骤:
 	apt-get install python3

@@ -12,7 +12,7 @@
 #############################################################
 import os
 import time
-os.system("pip3 install exp10it -U")
+os.system("pip3 install exp10it -U --no-cache-dir")
 from exp10it import figlet2file
 from exp10it import exp10itScanner
 figlet2file("3xp10it",0,True)
