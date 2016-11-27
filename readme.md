@@ -6,6 +6,12 @@ illegal.It is the end user's responsibility to obey all applicable local, state 
 assume no liability and are not responsible for any misuse or damage caused by this program.
 ```
 
+### Install 
+
+```
+git clone https://github.com/3xp10it/3xp10it.git
+```
+
 ### Usage
 
 ```
@@ -13,6 +19,33 @@ python3 3xp10it.py
 [python3 web.py],可选
 ```
 
+### Requirement
+
+```
+works on linux(test on ubuntu and kali2.0,others not test)
+need python3
+need pip3
+mysql
+
+python3安装可参考如下步骤:
+	apt-get install python3
+	或:
+	wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz
+	tar xJf Python-3.5.2.tar.xz
+	cd Python-3.5.2
+	./configure --prefix=/opt/python3
+	make && make install
+	ln -s /opt/python3/bin/python3.5 /usr/local/bin/python3
+pip3安装:
+apt-get install -y python3-pip
+
+kali linux2安装pip3可参考如下步骤:
+	echo "deb-src http://http.kali.org/kali kali main non-free contrib" >> /etc/apt/sources.list
+	echo "deb-src http://security.kali.org/kali-security kali/updates main contrib non-free" >>
+/etc/apt/sources.list
+	apt-get update
+	apt-get install python3-pip
+```
 
 ### About
 
@@ -83,17 +116,17 @@ e)web后台说明
 ### Detail
 
 ```
-[3xp10it需要用到bingapi,需要先申请好bingapi]
-1.上面的web.py不一定要运行,核心功能在3xp10it.py文件中
-2.如果要后台功能需运行python3 web.py
-3.如果要使用web.py,重新开机后需要重新运行web.py
-4.运行web.py常见错误:端口被占用.解决方法:
+1.3xp10it需要用到bingapi,需要先申请好bingapi
+2.上面的web.py不一定要运行,核心功能在3xp10it.py文件中
+3.如果要后台功能需运行python3 web.py
+4.如果要使用web.py,重新开机后需要重新运行web.py
+5.运行web.py常见错误:端口被占用.解决方法:
 a)netstat -ntlp | grep 8000
 b)在a)中找到pid后kill -9 pid
 c)重新运行python3 web.py
-5.3xp10it中调用的是关键模块exp10it中的exp10itScanner,exp10it模块由pip3 install exp10it安装,安装路径一般如下:
+6.3xp10it中调用的是关键模块exp10it中的exp10itScanner,exp10it模块由pip3 install exp10it安装,安装路径一般如下:
 /usr/local/lib/python3.5/dist-packages
-6.文件分布结构如下:
+7.文件分布结构如下:
 
 当前目录
 .
