@@ -36,6 +36,7 @@ python3安装可参考如下步骤:
 	./configure --prefix=/opt/python3
 	make && make install
 	ln -s /opt/python3/bin/python3.5 /usr/local/bin/python3
+	
 pip3安装:
 apt-get install -y python3-pip
 
